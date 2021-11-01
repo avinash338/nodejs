@@ -1,0 +1,6 @@
+{
+    "jwtPrivateKey":"jwtPrivateKey",
+    "db":"mongodb+srv://avinash:CP2YlKLYWqjAzeAS@cluster0.cxxe2.mongodb.net/myusers?retryWrites=true&w=majority"
+}
+
+
