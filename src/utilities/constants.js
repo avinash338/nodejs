@@ -29,11 +29,13 @@ module.exports = {
     },
 
     jwtConstants: {
-        TOKEN_TIMEOUT       : 3600 // [expires for every one hour]
+        TOKEN_TIMEOUT       : 3600, // [expires for every one hour]
+        PRIVATE_KEY         : "jwtPrivateKey"
     },
 
     serverConfig: {
-        PORT                : 8000
+        PORT                : 8000,
+        DB_URL              : "mongodb://localhost:27017/users"
     },
 
     routes: {

@@ -1,12 +1,13 @@
 // npm dependencies
 const jwt                       = require('jsonwebtoken');
-const config                    = require('config');
 
 // Iternal dependencies
 // const { roles }                 = require('../utilities/roles');
 const messages                  = require('../utilities/static_messages');
 const { handleResponse }        = require('../utilities/utils');
-const { statusCode, userRoles } = require('../utilities/constants');
+const { statusCode, 
+        userRoles, 
+        jwtConstants }          = require('../utilities/constants');
 
 /**
  * @param {object}  request     Request body from data sent by end user. 
@@ -20,7 +21,7 @@ authentication = (request, response, next) => {
     if (!token) return handleResponse(statusCode.FORBIDDEN, response, { message: messages.TOKEN_REQUIRED_TEXT });
     try {
         // Decoding the data in token.
-        const decoded = jwt.verify(token, config.get('jwtPrivateKey'));
+        const decoded = jwt.verify(token, jwtConstants.PRIVATE_KEY);
         // Adding the decoded data to request object.
         request.user = decoded;
         // next middleware.
@@ -50,7 +51,7 @@ authentication = (request, response, next) => {
 //         }
 //         const methodType = request.method;
 //         // Decoding the data in token.
-//         const tokenData = jwt.verify(token, config.get('jwtPrivateKey'));
+//         const tokenData = jwt.verify(token, jwtConstants.PRIVATE_KEY);
 //         // Checking the isAdmin field in token data and setting the respective user role.
 //         if (tokenData.isAdmin === true) {
 //             roleType = userRoles.ADMIN;
