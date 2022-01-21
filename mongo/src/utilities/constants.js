@@ -35,7 +35,7 @@ module.exports = {
 
     serverConfig: {
         PORT                : 8000,
-        DB_URL              : "mongodb://localhost:27017/users"
+        DB_URL              : "mongodb+srv://avinash:Welcome2india@cluster0.cxxe2.mongodb.net/demo?retryWrites=true&w=majority"
     },
 
     routes: {
